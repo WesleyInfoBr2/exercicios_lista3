@@ -138,4 +138,4 @@ ax.legend(title="Projetos")
 ax.grid(True)
 fig.tight_layout()
     
-    st.pyplot(fig)
+st.pyplot(fig)
