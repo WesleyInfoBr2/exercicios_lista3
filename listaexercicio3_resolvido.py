@@ -119,23 +119,23 @@ with st.expander('Mostrar texto'):
       - `plt.show()`
     """
 
-    df["Data"] = pd.to_datetime(dict(year=df["ano"], month=df["mes"], day=1))
-    
-    df = df.sort_values("Data")
-    st.dataframe(df)
-    
-    projetos = ["Projeto1", "Projeto2", "Projeto3", "Projeto4", "Projeto5"]
-    
-    fig, ax = plt.subplots(figsize=(10, 6))  
-    
-    for projeto in projetos:
-        ax.plot(df["Data"], df[projeto], marker="o", label=projeto)
-    
-    ax.set_title("Evolução dos Fluxos de Caixa dos Projetos")
-    ax.set_xlabel("Tempo (Ano-Mês)")
-    ax.set_ylabel("Valor (R$)")
-    ax.legend(title="Projetos")
-    ax.grid(True)
-    fig.tight_layout()
+df["Data"] = pd.to_datetime(dict(year=df["ano"], month=df["mes"], day=1))
+
+df = df.sort_values("Data")
+st.dataframe(df)
+
+projetos = ["Projeto1", "Projeto2", "Projeto3", "Projeto4", "Projeto5"]
+
+fig, ax = plt.subplots(figsize=(10, 6))  
+
+for projeto in projetos:
+    ax.plot(df["Data"], df[projeto], marker="o", label=projeto)
+
+ax.set_title("Evolução dos Fluxos de Caixa dos Projetos")
+ax.set_xlabel("Tempo (Ano-Mês)")
+ax.set_ylabel("Valor (R$)")
+ax.legend(title="Projetos")
+ax.grid(True)
+fig.tight_layout()
     
     st.pyplot(fig)
